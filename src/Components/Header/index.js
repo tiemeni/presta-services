@@ -31,15 +31,31 @@ const appNavData = [
         },
         menuItems: [
             {
-                text: 'Strategies',
+                text: 'Un mois offert sans engagement',
                 to: '#sub-1'
             },
             {
-                text: 'Integrations',
+                text: "Consultation et stratégie",
                 to: '#sub-2'
             },
             {
-                text: 'Gestion du changement',
+                text: "Analyse des besoins",
+                to: '#sub-3'
+            },
+            {
+                text: "Configuration de Salesforce",
+                to: '#sub-3'
+            },
+            {
+                text: "Développement personnalisé",
+                to: '#sub-3'
+            },
+            {
+                text: "Intégration Salesforce aux systemes existants",
+                to: '#sub-3'
+            },
+            {
+                text: "Formation et support",
                 to: '#sub-3'
             },
         ]
