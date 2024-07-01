@@ -1,0 +1,15 @@
+@import '~bootstrap/scss/bootstrap';
+
+.App {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.box-service:hover{
+    background-color: white;
+    transition: 500ms;
+    color: #4880fe;
+}
+
