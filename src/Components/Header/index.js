@@ -112,7 +112,7 @@ export function AppBarNavLinkMenu({ items = [], show = false, display, anchorid,
 export function AppBarNavLink({ to = '', id = 2, children }) {
     return (
         <div className='app-bar-nav-link'>
-            <a href={to.replace(' ', '')} id={id} style={{fontSize: 18}} >
+            <a href={to.replace(' ', '')} id={id} style={{ fontSize: 18, fontFamily: 'Roboto' }} >
                 {children}
                 <span className='app-bar-nav-link-chevron-down' />
 
@@ -132,7 +132,7 @@ export function AppBarNavMenuItem({ text = '', to = '', index = 'none' }) {
         className = 'app-bar-nav-menu-link'
     }
     return (
-        <a className={className} href={to.replace(' ', '')} style={{ display: 'inline-block' }}>
+        <a className={className} href={to.replace(' ', '')} style={{ display: 'inline-block', }}>
             {text}
         </a>
     )
@@ -145,15 +145,20 @@ export const Header = () => {
             <Grid mt={0} container spacing={2} height={90} backgroundColor="white" color={"black"} position={"fixed"} zIndex={999}>
                 <Grid {...style} item xs={6} md={5} fontSize={17} padding={10}>
                     <Box>
-                    <img src={"/logo.png"} alt="logo" style={{objectFit:'cover', height:'50px'}}  />
+                        <img src={"/logo.png"} alt="logo" style={{ objectFit: 'cover', height: '50px' }} />
                     </Box>
                     <nav className='app-bar-nav'>
                         {appNavData.map((navItem, index) => (<AppBarFullNavLink id={`navlink${index}`} navLink={navItem.navLink} menuItems={navItem.menuItems} />))}
 
                     </nav>
                 </Grid>
-                <Grid {...{ ...style, justifyContent: "flex-end", }} item xs={6} md={7} padding={10}>
-                    <Box><Button style={{ backgroundColor: "#4880fe", background: 'linear-gradient(to right, #4880fe, #0f49cf)', height: 50, borderRadius: 15 }} variant="contained">Nous contacter</Button></Box>
+                <Grid {...{ ...style, justifyContent: "flex-end" }} item xs={6} md={7} padding={10}>
+                    <Box display={"flex"} flexDirection={'row'} alignItems={"center"}>
+                        <Button style={{ marginLeft: 30, backgroundColor: "#4880fe", background: 'linear-gradient(to right, #4880fe, #0f49cf)', height: 50, borderRadius: 15 }} variant="contained">Nous contacter</Button>
+                        <a target="_blank" rel="noreferrer" href="https://wa.me/237690892155">
+                            <img src="/wa.png" height={50} width={50} alt="" style={{ marginRight: -15, marginLeft: 15 }} />
+                        </a>
+                    </Box>
                 </Grid>
             </Grid>
             <Box sx={{
@@ -176,30 +181,17 @@ export const Header = () => {
                     </Box>
                 </Box>
             </Box>
-            <Box width={"100%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} mb={15}>
+            <Box width={"100%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} mt={15} mb={10}>
                 <Box display={"flex"} flexDirection={"row"} width={"90%"} mt={10}>
                     <Box width={"50%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
                         <Box width={"80%"}>
                             <h1 style={{ fontSize: 40, fontFamily: 'Roboto', fontWeight: 100 }}>
-                                Partenaire Salesforce de niveau Summit
+                                Qui sommes-nous ?
                             </h1>
-                            <br/>
-                            <p style={{ fontSize: 20, color: "#656c73" }}>
-                            Nous sommes experts en solutions Salesforce, dédiés à aider les entreprises à maximiser leur efficacité et à atteindre leurs objectifs commerciaux. Découvrez comment nous pouvons transformer votre organisation avec nos services de pointe
-                            </p>
                             <br />
-                            <p style={{ fontSize: 20, color: "#656c73" }}>
-                                Nous offrons la gamme complète des services nécessaires à votre transformation numérique, incluant:
+                            <p style={{ fontSize: 20, color: "#424447", fontFamily: 'Roboto' }}>
+                                <strong style={{ fontSize: 22, fontWeight: 700 }}>CloudOptimize</strong> est une entreprise Salesforce de confiance, avec des années d'expérience dans la mise en œuvre, la personnalisation et l'optimisation des solutions Salesforce. Notre équipe de développeurs certifiés et de consultants travaille en étroite collaboration avec nos clients pour offrir des solutions sur mesure qui répondent à leurs besoins spécifiques.
                             </p>
-                            <ol style={{ fontSize: 20, color: "#656c73" }}>
-                                <li style={{ marginBottom: 10 }}>Consultation et stratégie Salesforce</li>
-                                <li style={{ marginBottom: 10 }}>Planification et stratégie de mise en œuvre.</li>
-                                <li style={{ marginBottom: 10 }}>Intégration de Salesforce avec vos systèmes existants.</li>
-                                <li style={{ marginBottom: 10 }}>Synchronisation des données pour une efficacité maximale.</li>
-                                <li style={{ marginBottom: 10 }}>Analyse des performances et recommandations d'amélioration.</li>
-                                <li style={{ marginBottom: 10 }}>Sessions de formation pour vos équipes.</li>
-                            </ol>
-                            <Button style={{ height: 50, padding: 25, marginTop: 20, fontSize: 17, background: 'linear-gradient(to right, #4880fe, #4880fe)', backgroundColor: "#4880fe", borderRadius: 20 }} variant="contained">PLUS D'INFORMATIONS</Button>
                         </Box>
                     </Box>
                     <Box width={"50%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
@@ -208,23 +200,69 @@ export const Header = () => {
                 </Box>
             </Box>
             <Divider style={{ width: "100%", }} />
+            <Box width={"100%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} mt={10} mb={10}>
+                <Box display={"flex"} flexDirection={"row-reverse"} width={"90%"} mt={10}>
+                    <Box width={"50%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
+                        <Box width={"80%"}>
+                            <h1 style={{ fontSize: 40, fontFamily: 'Roboto', fontWeight: 100 }}>
+                                A propos de nous ?
+                            </h1>
+                            <br />
+                            <p style={{ fontSize: 20, color: "#424447", fontFamily: 'Roboto' }}>
+                                <strong style={{ fontSize: 22, fontWeight: 700 }}>CloudOptimize</strong> est une entreprise Salesforce de confiance, avec des années d'expérience dans la mise en œuvre, la personnalisation et l'optimisation des solutions Salesforce. Notre équipe de développeurs certifiés et de consultants travaille en étroite collaboration avec nos clients pour offrir des solutions sur mesure qui répondent à leurs besoins spécifiques
+                            </p>
+                        </Box>
+                    </Box>
+                    <Box width={"50%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
+                        <img src="/einstein.png" style={{ borderRadius: 15 }} height={400} width={300} alt="" />
+                    </Box>
+                </Box>
+            </Box>
+            <Divider style={{ width: "100%", }} />
+            <Box width={"100%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} mt={10} mb={10}>
+                <Box display={"flex"} flexDirection={"row"} width={"90%"} mt={10}>
+                    <Box width={"50%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
+                        <Box width={"80%"}>
+                            <h1 style={{ fontSize: 40, fontFamily: 'Roboto', fontWeight: 100 }}>
+                                Nos valeurs
+                            </h1>
+                            <br />
+                            <h5><strong style={{ fontWeight: 700 }}>Innovation :</strong> Nous utilisons les dernières technologies et les meilleures pratiques pour fournir des solutions innovantes.</h5>
+                            <br />
+                            <h5><strong style={{ fontWeight: 700 }}>Engagement :</strong> Nous nous engageons à la réussite de nos clients et à la création de partenariats durables.</h5>
+                            <br />
+                            <h5><strong style={{ fontWeight: 700 }}>Excellence :</strong> Nous nous efforçons d'exceller dans tout ce que nous faisons, en offrant des services de la plus haute qualité.</h5>
+                            <br />
+                        </Box>
+                    </Box>
+                    <Box width={"50%"} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
+                        <img src="/values.jpg" style={{ borderRadius: 15 }} height={300} width={400} alt="" />
+                    </Box>
+                </Box>
+            </Box>
+            <Divider style={{ width: "100%", }} />
             <Box mt={15} mb={15} display={"flex"} flexDirection={"column"} alignItems={"center"}>
                 <h2 style={{ fontSize: 20, color: "#656c73", fontWeight: 700, fontFamily: 'Roboto' }}>Bénéficiez de notre expérience</h2>
                 <h1 style={{ fontSize: 50, fontFamily: 'Roboto', fontWeight: 100 }}>Nos services</h1>
-                <p style={{ textAlign: "center", fontSize: 25, width: "70%", color: "#656c73", fontWeight: 100, fontFamily: 'Roboto' }}>
-                    Nos équipes de consultants, analystes d’affaires, analystes fonctionnels, scrum masters, développeurs, spécialistes QA et architectes comptent des milliers de projets à leur actif. Profitez de leur expérience d’affaires et de leur expertise technique pour accélérer votre entreprise.
-                </p>
+
                 <Box mt={15} display={"flex"} flexDirection={"row"} flexWrap={"wrap"}>
-                    {["Analyse", "Strategie", "Projets"].map(e => {
+                    {["Un mois offert sans engagement"].map(e => {
                         return (
-                            <Box className="box-service" display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"} borderRadius={15} height={250} width={350} mr={2} sx={{ fontWeight: 100, fontFamily: 'Roboto', cursor: "pointer", backgroundColor: "#4880fe", color: "white", fontSize: 40 }}>{e}</Box>
+                            <Box className="box-service" padding={2} display={"flex"} textAlign={"center"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"} borderRadius={15} height={250} width={350} mr={2} sx={{ fontWeight: 100, fontFamily: 'Roboto', cursor: "pointer", backgroundColor: "#4880fe", color: "white", fontSize: 40 }}>{e}</Box>
+                        )
+                    })}
+                </Box>
+                <Box mt={15} display={"flex"} flexDirection={"row"} flexWrap={"wrap"}>
+                    {["Consultation et stratégie", "Analyse des besoins", "Configuration de Salesforce"].map(e => {
+                        return (
+                            <Box className="box-service" display={"flex"} textAlign={"center"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"} borderRadius={15} height={250} width={350} mr={2} sx={{ fontWeight: 100, fontFamily: 'Roboto', cursor: "pointer", backgroundColor: "#4880fe", color: "white", fontSize: 40 }}>{e}</Box>
                         )
                     })}
                 </Box>
                 <Box mt={5} display={"flex"} flexDirection={"row"} flexWrap={"wrap"}>
-                    {["Integration", "Formation", "Support"].map(e => {
+                    {["Développement personnalisé", "Intégration Salesforce aux systemes existants", "Formation et support"].map(e => {
                         return (
-                            <Box className="box-service" display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"} borderRadius={15} height={250} width={350} mr={2} sx={{ fontWeight: 100, fontFamily: 'Roboto', cursor: "pointer", backgroundColor: "#4880fe", color: "white", fontSize: 40 }}>{e}</Box>
+                            <Box className="box-service" display={"flex"} flexDirection={"row"} textAlign={"center"} justifyContent={"center"} alignItems={"center"} borderRadius={15} height={250} width={350} mr={2} sx={{ fontWeight: 100, fontFamily: 'Roboto', cursor: "pointer", backgroundColor: "#4880fe", color: "white", fontSize: 40 }}>{e}</Box>
                         )
                     })}
                 </Box>
@@ -243,7 +281,7 @@ export const Header = () => {
                         </Box>
                     </Box>
                     <Box width={"50%"} alignContent={"flex-start"} gap={2} display={"flex"} flexDirection={"row"} justifyContent={"center"} flexWrap={"wrap"} alignItems={"center"}>
-                        {["Sales Cloud", "Service Cloud", "Experience Cloud", "CPQ", "Account Engagement", "Marketing Cloud", "Commerce Cloud"].map(e => {
+                        {["Sales Cloud", "Service Cloud"].map(e => {
                             return (
                                 <Box display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"} borderRadius={15} height={20} width={"auto"} mr={1} sx={{ fontWeight: 100, fontFamily: 'Roboto', cursor: "pointer", backgroundColor: "white", border: " 1px solid #4880fe", color: "#4880fe", fontSize: 20, padding: 2 }}>{e}</Box>
                             )
@@ -255,7 +293,9 @@ export const Header = () => {
                 <Box padding={5} sx={{ backgroundColor: "#4880fe", background: 'linear-gradient(to top, #7095eb, #2a60de)' }} borderRadius={5} height={"100%"} width={"100%"}>
                     <h1 style={{ fontSize: 35, color: "white" }}>Accelerez votre Amelioration continue</h1>
                     <h1 style={{ fontSize: 80, color: "white", fontWeight: 400, fontFamily: 'Roboto' }}>Votre prochain projet avec nous</h1>
-                    <Button style={{ height: 70, padding: 25, marginTop: 100, fontSize: 17, color: "#4880fe", backgroundColor: "white", borderRadius: 20 }} variant="contained">Contactez-nous</Button>
+                    <a target="_blank" rel="noreferrer" href="https://wa.me/237690892155">
+                        <img src="/wa.png" height={70} width={70} alt="" />
+                    </a>
                 </Box>
             </Box>
         </>
