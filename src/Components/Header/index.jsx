@@ -569,7 +569,7 @@ export const Header = () => {
         <Grid {...style} item xs={6} md={5} fontSize={17} padding={10}>
           <Box>
             <img
-              src={"/logo.png"}
+              src={"/log.jpg"}
               alt="logo"
               style={{ objectFit: "cover", height: "50px" }}
             />
